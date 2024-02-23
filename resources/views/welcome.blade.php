@@ -2,6 +2,14 @@
 @section('title','Empresa de eventos')
 @section('content')
 
-<h1>Título</h1>
+
+@foreach($events as $event)
+
+
+
+<p>{{$event->title}} -- {{$event->description}}</p>
+
+@endforeach
+
 
 @endsection
