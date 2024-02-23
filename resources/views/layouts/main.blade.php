@@ -42,6 +42,7 @@
     <footer>
         Empresa de eventos
     </footer>
-    <script src="https://unpkg.com/ioicons@5.1.2/dist/ioicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     </body>
  </html>
