@@ -34,6 +34,8 @@ class EventController extends Controller
 
             $event->image = $imageName;
 
+        }else{
+            $event->image = 'sem imagem';
         }
 
         $event->save();
