@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Event;
 
+
 class EventController extends Controller
 {
     public function index(){
@@ -20,6 +21,7 @@ class EventController extends Controller
         $event->city = $request->city;
         $event->private = $request->private;
         $event->description = $request->description;
+        $event->items = $request->items;
 
          // Image Upload
          if($request->hasFile('image') && $request->file('image')->isValid()) {
@@ -30,8 +32,9 @@ class EventController extends Controller
 
             $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
 
-            $requestImage->move(public_path('img/events'), $imageName);
-
+            //$requestImage->move(public_path('img'.DIRECTORY_SEPARATOR.'events'), $imageName);
+            $requestImage->storeAs('public',$imageName);
+            
             $event->image = $imageName;
 
         }else{

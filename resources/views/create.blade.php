@@ -27,6 +27,24 @@
         <textarea name="description" id="description" name="description" class="form-control"></textarea>
     </div>
     <div class="form-group">
+        <label for="title">Adicione itens de infraestrutura:</label>
+        <div class="form-group">
+            <input type="checkbox" name="items[]" value="Cadeiras">Cadeiras
+        </div>
+        <div class="form-group">
+            <input type="checkbox" name="items[]" value="Palco">Palco
+        </div>
+        <div class="form-group">
+            <input type="checkbox" name="items[]" value="Cerveja grátis">Cerveja grátis
+        </div>
+        <div class="form-group">
+            <input type="checkbox" name="items[]" value="Open Food">Open food
+        </div>
+        <div class="form-group">
+            <input type="checkbox" name="items[]" value="Brindes">Brindes
+        </div>
+    </div>
+    <div class="form-group">
         <label for="title">Imagem do evento:</label>
         <input type="file" class="form-control-file" id="image" name="image">
     </div>
