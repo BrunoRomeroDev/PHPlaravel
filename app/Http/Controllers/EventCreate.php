@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 Use App\Models\Event;
 use Illuminate\Support\Facades\Storage;
+use App\Models\User;
 
 class EventCreate extends Controller
 {
@@ -17,8 +18,8 @@ class EventCreate extends Controller
 
         $event = Event::findOrFail($id);
         $event->image = Storage::url($event->image);//local PMSV
-
-        return view('show', ['event' => $event]);
+        $eventOwner = User::where('id',$event->user_id)->first()->toArray();
+        return view('show', ['event' => $event, 'eventOwner' => $eventOwner]);
 
     }
 }

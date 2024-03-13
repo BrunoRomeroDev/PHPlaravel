@@ -4,6 +4,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventCreate;
 use App\Http\Controllers\EventTeste;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EventDelete;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,7 @@ Route::get('/testevariavel',[EventTeste::class,'teste']);
 Route::get('/event/create',[EventCreate::class,'createEvent'])->middleware('auth');
 Route::get('/event/{id}',[EventCreate::class,'show']);
 Route::post('/events', [EventController::class,'store']);
+Route::delete('/events/{id}', [EventDelete::class,'destroy']);
 
 Route::get('/produtos',function(){
 
@@ -36,12 +38,14 @@ Route::get('/products_teste/{id?}', function($id = null){
     return view('product',['id' => $id]);
 });
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
+Route::get('/dashboard', [EventController::class,'dashboard'])->middleware('auth');
+
+// Route::middleware([
+//     'auth:sanctum',
+//     config('jetstream.auth_session'),
+//     'verified',
+// ])->group(function () {
+//     Route::get('/dashboard', function () {
+//         return view('dashboard');
+//     })->name('dashboard');
+// });
