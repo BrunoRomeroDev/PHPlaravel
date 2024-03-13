@@ -16,6 +16,7 @@ class EventCreate extends Controller
     public function show($id) {
 
         $event = Event::findOrFail($id);
+        $event->image = Storage::url($event->image);//local PMSV
 
         return view('show', ['event' => $event]);
 

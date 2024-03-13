@@ -40,7 +40,8 @@ class EventController extends Controller
 
             $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
 
-            $requestImage->move(public_path('img'.DIRECTORY_SEPARATOR.'events'), $imageName);
+            //$requestImage->move(public_path('img'.DIRECTORY_SEPARATOR.'events'), $imageName);
+            $requestImage->storeAs('public',$imageName);//local PMSV
 
             $event->image = $imageName;
 

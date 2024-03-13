@@ -5,7 +5,7 @@
 <div class="col-md-10 offset-md-1">
     <div class="row">
       <div id="image-container" class="col-md-6">
-        <img src="/img/events/{{ $event->image }}" class="img-fluid" alt="{{ $event->title }}">
+        <img src="{{ $event->image }}" class="img-fluid" alt="{{ $event->title }}"><!-- local PMSV  - 'img/events'  -->
       </div>
       <div id="info-container" class="col-md-6">
         <h1>{{ $event->title }}</h1>
