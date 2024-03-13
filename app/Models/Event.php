@@ -13,4 +13,8 @@ class Event extends Model
     ];
 
     protected $date = ['date'];
+
+    public function user(){
+        return $this->belongTo('App\Models\User');
+    }
 }
