@@ -5,6 +5,7 @@ use App\Http\Controllers\EventCreate;
 use App\Http\Controllers\EventTeste;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventDelete;
+use App\Http\Controllers\EventEdit;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,8 @@ Route::get('/event/create',[EventCreate::class,'createEvent'])->middleware('auth
 Route::get('/event/{id}',[EventCreate::class,'show']);
 Route::post('/events', [EventController::class,'store']);
 Route::delete('/events/{id}', [EventDelete::class,'destroy']);
+Route::get('event/edit/{id}',[EventEdit::class, 'edit'])->middleware('auth');
+Route::post('/event/update/{id}',[EventEdit::class,'update'])->middleware('auth');
 
 Route::get('/produtos',function(){
 
