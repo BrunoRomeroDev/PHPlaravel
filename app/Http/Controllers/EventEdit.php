@@ -34,8 +34,7 @@ class EventEdit extends Controller
 
       $data['image'] = $imageName;
 
-  }else{
-      $data['image'] = 'sem imagem';
+  
   }
 
    Event::findOrFail($request->id)->update($data);
