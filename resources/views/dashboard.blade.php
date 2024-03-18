@@ -35,7 +35,7 @@
     </tbody>
 </table>
     @else
-    <p>Você ainda não tem eventos, <a href="/events/create">criar eventos</a></p>
+    <p>Você ainda não tem eventos, <a href="/event/create">criar eventos</a></p>
     @endif
 </div>
 
