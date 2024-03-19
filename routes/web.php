@@ -26,6 +26,7 @@ Route::post('/events', [EventController::class,'store']);
 Route::delete('/events/{id}', [EventDelete::class,'destroy']);
 Route::get('event/edit/{id}',[EventEdit::class, 'edit'])->middleware('auth');
 Route::post('/event/update/{id}',[EventEdit::class,'update'])->middleware('auth');
+Route::post('/event/join/{id}',[EventController::class,'joinEvent'])->middleware('auth');
 
 Route::get('/produtos',function(){
 
