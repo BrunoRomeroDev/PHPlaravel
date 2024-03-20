@@ -17,9 +17,22 @@ class EventCreate extends Controller
     public function show($id) {
 
         $event = Event::findOrFail($id);
+        $user = auth()->user();
+        $hashUserJoined = false;
+
+        if($user){
+            $userEvents = $user->eventAsParticipant->toArray();
+            
+            foreach($userEvents as $userEvent){
+                if($userEvent['id'] == $id){
+                    $hashUserJoined = true;
+                }
+            }
+        }
+
         $event->image = Storage::url($event->image);//local PMSV
         $eventOwner = User::where('id',$event->user_id)->first()->toArray();
-        return view('show', ['event' => $event, 'eventOwner' => $eventOwner]);
+        return view('show', ['event' => $event, 'eventOwner' => $eventOwner, 'hasUserJoined' => $hashUserJoined]);
 
     }
 }
