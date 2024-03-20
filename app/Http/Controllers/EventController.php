@@ -64,8 +64,9 @@ class EventController extends Controller
 
         $user = auth()->user();
         $events = $user->events;
+        $eventsAsParticipant = $user->eventAsParticipant;
 
-        return view('dashboard',['events'=>$events]);
+        return view('dashboard',['events'=>$events, 'eventsasparticipant' => $eventsAsParticipant]);
     }
 
     public function joinEvent($id){

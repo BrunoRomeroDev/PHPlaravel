@@ -11,8 +11,13 @@ class EventEdit extends Controller
 {
  public function edit($id){
 
+      $user = auth()->user();
       $event = Event::findOrFail($id);
       $event->image = Storage::url($event->image);//local PMSV
+
+      if($user->id != $event->user->$id){
+        return redirect('/dashboard');
+      }
    return view('edit',['event' => $event]);
  }
 
